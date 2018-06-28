@@ -16,7 +16,8 @@ export async function createPioneerColony(networkClient, tokenAddress) {
   const rewardAmount = toBN(115000);
 
   // Assign reward amount to colony
-  await colonyClient.token.transfer.send( { destinationAddress: colonyAddress, amount: rewardAmount.toString()})
+  await colonyClient.token.transfer.send( {
+    destinationAddress: colonyAddress, amount: rewardAmount.toString()});
 
   return {colonyId, colonyAddress};
-}
+};

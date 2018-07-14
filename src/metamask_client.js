@@ -16,7 +16,7 @@ const connector = new MetaMaskConnector({
 
 console.log('Now go to http://localhost:3333 in your MetaMask enabled web browser.');
 
-connector.start().then(() => {
+connector.start().then(async () => {
 
   const loader = new NetworkLoader({ network: "rinkeby" });
 
@@ -30,10 +30,11 @@ connector.start().then(() => {
   });
 
   const networkClient = new ColonyNetworkClient({ adapter });
+  await networkClient.init();
 
   console.log(Object.getPrototypeOf(networkClient));
 
-  const { colonyId, colonyAddress } = createPioneerColony(networkClient, PRT_ADDRESS);
+  const { colonyId, colonyAddress } = await createPioneerColony(networkClient, PRT_ADDRESS);
 
   console.log(`Created Pioneer Colony id: ${colonyId}, address: ${colonyAddress}`);
 

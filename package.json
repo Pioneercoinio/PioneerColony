@@ -9,7 +9,8 @@
     "start-ganache": "cd src/lib/colonyNetwork && ganache-cli -d --gasLimit 7000000 --acctKeys ganache-accounts.json --noVMErrorsOnRPCResponse",
     "start-trufflepig": "cd src/lib/colonyNetwork && trufflepig --ganacheKeyFile ganache-accounts.json",
     "start": "node src/index",
-    "test": "jest"
+    "test": "jest",
+    "metamask": "babel-node src/metamask_client.js --presets es2015,stage-2"
   },
   "repository": {
     "type": "git",
@@ -29,9 +30,12 @@
     "@colony/colony-js-client": "^1.5.3",
     "@colony/colony-js-contract-loader-http": "^1.4.1",
     "@colony/colony-js-contract-loader-network": "^1.0.3",
+    "babel-cli": "^6.26.0",
     "eslint-plugin-import": "^2.13.0",
     "ethers": "^3.0.24",
-    "web3": "^1.0.0-beta.34"
+    "node-metamask": "^1.0.2",
+    "web3": "^1.0.0-beta.34",
+    "web3-utils": "^1.0.0-beta.34"
   },
   "devDependencies": {
     "@colony/eslint-config-colony": "^4.0.1",

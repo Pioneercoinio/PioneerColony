@@ -8,8 +8,6 @@ import { ColonyNetworkClient } from "@colony/colony-js-client";
 
 import { createPioneerColony } from "../pioneercolony";
 
-const Token = artifacts.require("Token");
-
 // Create an instance of the Trufflepig contract loader
 const loader = new TrufflepigLoader();
 
@@ -53,8 +51,6 @@ describe("Create Pioneer Colony", () => {
     async () => {
       const { networkClient, tokenAddress } = truffleClient();
 
-      const token = new Contract(tokenAddress, abi, provider);
-      
       const { colonyId, colonyAddress } = createPioneerColony(networkClient, tokenAddress);
 
       expect(colonyId).not.toBeNull();
